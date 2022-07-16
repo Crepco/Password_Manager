@@ -1,5 +1,6 @@
 import tkinter
 from tkinter import Tk, Text
+
 from secrets import choice
 from tkinter.constants import END
 from turtle import width
@@ -17,7 +18,6 @@ symbols = ["!","@","#","$","%","^","&","*","(",")","-","_","+","=","[","]","{","
 class PasswordGenerator(customtkinter.CTk):
     
     def __init__(self):
-
 
         self.window = Tk()
 
@@ -106,6 +106,8 @@ class PasswordGenerator(customtkinter.CTk):
     def copy_password(self):
         self.window.clipboard_clear()
         self.window.clipboard_append(self.password_entry_box.get())
+    
+
         
     
     
