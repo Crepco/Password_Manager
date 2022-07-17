@@ -1,34 +1,33 @@
 from tkinter import simpledialog
 from database import init_database
+import customtkinter 
 
+class VaultMethods: # class for vault methods
 
-class VaultMethods:
+    def __init__(self): # constructor for vault methods
+        self.db, self.cursor = init_database()  # initialize database
 
-    def __init__(self):
-        self.db, self.cursor = init_database()
+    def popup_entry(self, heading): # function for popup entry
+        answer = simpledialog.askstring("Enter details", heading) # ask user to enter details for password entry 
+        return answer # 
 
-    def popup_entry(self, heading):
-        answer = simpledialog.askstring("Enter details", heading)
-        return answer
+    def add_password(self, vault_screen): # function for adding password to database
+        platform = self.popup_entry("Platform") # ask user to enter platform 
+        userid = self.popup_entry("Username/Email") # ask user to enter username/email
+        password = self.popup_entry("Password") # ask user to enter password    
 
-    def add_password(self, vault_screen):
-        platform = self.popup_entry("Platform")
-        userid = self.popup_entry("Username/Email")
-        password = self.popup_entry("Password")
+        insert_cmd = """INSERT INTO vault(platform, userid, password) VALUES (?, ?, ?)""" # insert command
+        self.cursor.execute(insert_cmd, (platform, userid, password)) # insert platform, username/email and password into database
+        self.db.commit() # commit changes to database
+        vault_screen() # call vault screen function
 
-        insert_cmd = """INSERT INTO vault(platform, userid, password) VALUES (?, ?, ?)"""
-        self.cursor.execute(insert_cmd, (platform, userid, password))
-        self.db.commit()
-        vault_screen()
+    def update_password(self, id, vault_screen): # function for updating password in database 
+        password = self.popup_entry("Enter New Password") # ask user to enter new password
+        self.cursor.execute("UPDATE vault SET password = ? WHERE id = ?", (password, id)) # update password in database 
+        self.db.commit() # commit changes to database 
+        vault_screen()   # call vault screen function
 
-    def update_password(self, id, vault_screen):
-        password = self.popup_entry("Enter New Password")
-        self.cursor.execute(
-            "UPDATE vault SET password = ? WHERE id = ?", (password, id))
-        self.db.commit()
-        vault_screen()
-
-    def remove_password(self, id, vault_screen):
-        self.cursor.execute("DELETE FROM vault WHERE id = ?", (id,))
-        self.db.commit()
-        vault_screen()
+    def remove_password(self, id, vault_screen): # function for removing password from database
+        self.cursor.execute("DELETE FROM vault WHERE id = ?", (id,)) # delete password from database
+        self.db.commit() # commit changes to database
+        vault_screen() # call vault screen function
