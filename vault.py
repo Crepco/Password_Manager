@@ -8,7 +8,7 @@ class VaultMethods: # class for vault methods
         self.db, self.cursor = init_database()  # initialize database
 
     def popup_entry(self, heading): # function for popup entry
-        answer = simpledialog.askstring("Enter details", heading) # ask user to enter details for password entry 
+        answer = simpledialog.askstring("Enter details", heading, bg = "#2a2d2e") # ask user to enter details for password entry 
         return answer # 
 
     def add_password(self, vault_screen): # function for adding password to database

@@ -1,8 +1,7 @@
 from database import init_database 
 import tkinter
-from tkinter import Tk
 from tkinter.constants import BOTH, CENTER, END, LEFT, RIGHT, VERTICAL, Y
-from tkinter import Button, Canvas, Entry, Frame, Label, Scrollbar, Tk
+from tkinter import Canvas
 from functools import partial
 from vault import VaultMethods
 import customtkinter
@@ -10,7 +9,7 @@ import hashlib
 from generator import PasswordGenerator
 
 customtkinter.set_default_color_theme("blue") # set default color theme
-customtkinter.set_appearance_mode("dark")  # set default appearance mode
+ # set default appearance mode
 
 class PasswordManager(customtkinter.CTk): # class for password manager 
 
@@ -161,7 +160,10 @@ class PasswordManager(customtkinter.CTk): # class for password manager
         main_frame = customtkinter.CTkFrame(self.window) # create frame for main window
         main_frame.pack(fill=BOTH, expand=1) # pack frame
 
-        main_canvas = Canvas(main_frame) # create canvas for main window
+        
+
+            
+        main_canvas = Canvas(main_frame, bg='#2a2d2e') # create canvas for main window
         main_canvas.pack(side=LEFT, fill=BOTH, expand=1) # pack canvas
 
         main_scrollbar = customtkinter.CTkScrollbar(main_frame, 

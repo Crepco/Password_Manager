@@ -3,7 +3,8 @@ from tkinter import Tk
 from secrets import choice
 from tkinter.constants import END
 import customtkinter
-customtkinter.set_appearance_mode("dark")
+
+
 
 
 uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
@@ -17,10 +18,10 @@ class PasswordGenerator(): # class for password generator
     
     def __init__(self): # constructor
 
-        self.window = customtkinter.CTk() # create window
+        self.window = Tk() # create window
         self.window.title("Password Generator") # set title
         self.window.geometry("450x245") # set size
-
+        self.window.configure(bg='#2a2d2e')
 
 
        
