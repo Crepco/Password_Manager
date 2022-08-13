@@ -8,6 +8,8 @@ import customtkinter
 import hashlib
 from generator import PasswordGenerator
 
+
+
 customtkinter.set_default_color_theme("blue") # set default color theme
  # set default appearance mode
 
@@ -19,6 +21,7 @@ class PasswordManager(customtkinter.CTk): # class for password manager
         self.window.update() # update window 
         self.window.title("Password Manager") # set title for window 
         self.window.geometry("650x400") # set size of window 
+        
 
     def welcome_new_user(self): # function to welcome new user 
         self.window.geometry("450x250") # set size of window 
@@ -155,7 +158,10 @@ class PasswordManager(customtkinter.CTk): # class for password manager
             widget.destroy() # destroy widget
 
         vault_methods = VaultMethods() # create vault methods object
- 
+
+        
+        
+        
         self.window.geometry("1166x500") # set size of window
         main_frame = customtkinter.CTkFrame(self.window) # create frame for main window
         main_frame.pack(fill=BOTH, expand=1) # pack frame

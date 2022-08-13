@@ -1,20 +1,20 @@
-from tkinter import simpledialog
 from database import init_database
 import customtkinter 
 
 class VaultMethods: # class for vault methods
 
-    def __init__(self): # constructor for vault methods
+    def __init__(self, ): # constructor for vault methods
         self.db, self.cursor = init_database()  # initialize database
 
-    def popup_entry(self, heading): # function for popup entry
-        answer = simpledialog.askstring("Enter details", heading, bg = "#2a2d2e") # ask user to enter details for password entry 
-        return answer # 
+    def popup_entry(self, what): # function for popup entry
+        dialog = customtkinter.CTkInputDialog(title = "Enter details", text = what) # ask user to enter details for password entry 
+        answer = dialog.get_input()
+        return answer # return answer to calling function
 
     def add_password(self, vault_screen): # function for adding password to database
-        platform = self.popup_entry("Platform") # ask user to enter platform 
-        userid = self.popup_entry("Username/Email") # ask user to enter username/email
-        password = self.popup_entry("Password") # ask user to enter password    
+        platform = self.popup_entry(what = "Platform") # ask user to enter platform 
+        userid = self.popup_entry(what = "Username/Email") # ask user to enter username/email
+        password = self.popup_entry(what = "Password") # ask user to enter password    
 
         insert_cmd = """INSERT INTO vault(platform, userid, password) VALUES (?, ?, ?)""" # insert command
         self.cursor.execute(insert_cmd, (platform, userid, password)) # insert platform, username/email and password into database
