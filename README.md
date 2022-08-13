@@ -10,7 +10,6 @@ customtkinter
 
 ---------------------------
  ## Instructions: ##
- 
  run `manager.py` to use the password manager
  
  ---------------------------------
