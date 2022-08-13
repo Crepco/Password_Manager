@@ -1,15 +1,15 @@
-# Password_Manager
+# Password_Manager #
  =============
 
 
-## Requiremnts
+## Requiremnts ##
 
 customtkinter
 
 `pip install customtkinter`
 
 ---------------------------
- ## Instructions:
+ ## Instructions: ##
  
  run `manager.py` to use the password manager
  ============= 
