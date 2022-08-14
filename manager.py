@@ -77,8 +77,6 @@ class PasswordManager(customtkinter.CTk): # class for password manager
         self.feedback.pack() # pack label
 
 
-
-
         save_btn = customtkinter.CTkButton(self.window, 
                                            text="Create Password",
                                            width=150,
