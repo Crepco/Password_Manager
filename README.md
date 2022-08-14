@@ -11,7 +11,10 @@ customtkinter
  ## Instructions: ##
  To download use :
  `git clone github.com/Crepco/Password_Manager` 
- \nrun `manager.py` to use the password manager
+ 
+ 
+ 
+ run `manager.py` to use the password manager
  
  ---------------------------------
 
