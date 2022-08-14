@@ -1,5 +1,4 @@
 # Password_Manager #
--------------------
 
 
 ## Requiremnts ##
