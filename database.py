@@ -2,7 +2,7 @@ import sqlite3
 
 def init_database(): # function for initializing database
     with sqlite3.connect("password_tijori.db") as db:
-        cursor = db.cursor() # create cursor
+        cursor = db.cursor() # create cursor  
     cursor.execute("""
             CREATE TABLE IF NOT EXISTS master(
             id INTEGER PRIMARY KEY,
